@@ -5,7 +5,13 @@ A repository containing vetted SQL queries that the data chapter signed-off on.
 
 1. Content recommendations query
 
-In this query the aim is to pull data for all students
+The content recommendations query joins the `insights` & `analytics` datasets to obtain shortlisting data from a souce the contains common app
+and parchment shortlists. The platform events data is used to pull profile views & article reads for data transformation.
+
+The looker query below may assist in the qa, the numbers reflected in this report should tally with the counts for each of the selected tables.
+
+https://looker.app.bridge-u.com/dashboards/402
+
 ```
 -- all student country preferences for 2025
 WITH country_preferences AS (SELECT c.official_name, a.global_id

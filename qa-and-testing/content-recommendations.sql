@@ -412,10 +412,10 @@ sum_es_partner_profile_views,
 sum_swed_partner_profile_views,
 sum_non_partner_profile_views,
 subject_interests_areas_subject_area_name,
-ARRAY_TO_STRING(wh_marketing__articles_dim_article_natural_key,' || ') as articles_read
+ARRAY_TO_STRING(wh_marketing__articles_dim_article_natural_key,' || ') as articles_read,
+
     FROM platform_events_2025 
-    -- left outer joins are used to include all students who despite their engagement with articles, profile views & shortlists
-    LEFT OUTER JOIN grad_2025 on grad_2025.analytics_id = platform_events_2025.wh_platform__events_fact_event_user_natural_key and grad_2025.email = platform_events_2025.student_email 
+    INNER JOIN grad_2025 on grad_2025.analytics_id = platform_events_2025.wh_platform__events_fact_event_user_natural_key and grad_2025.email = platform_events_2025.student_email 
     LEFT OUTER JOIN subject_country_preferences ON grad_2025.analytics_id = subject_country_preferences.users_analytics_id
     LEFT JOIN shortlists_2025 ON platform_events_2025.wh_platform__events_fact_event_user_natural_key = shortlists_2025.students_analytics_id
     LEFT JOIN article_engagement_2025 ON grad_2025.analytics_id = article_engagement_2025.wh_platform__events_fact_event_user_natural_key

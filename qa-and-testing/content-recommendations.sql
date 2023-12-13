@@ -1,12 +1,3 @@
-# QA'ed SQL Queries
-
-A repository containing vetted SQL queries that the data chapter signed-off on. 
-
-
-1. Content recommendations query
-
-In this query the aim is to pull data for all students
-```
 -- all student country preferences for 2025
 WITH country_preferences AS (SELECT c.official_name, a.global_id
     FROM insights.countries  AS c 
@@ -436,8 +427,3 @@ GROUP BY platform_events_2025.wh_platform__events_fact_event_user_natural_key,
             sum_ir_partner_profile_views, sum_fn_partner_profile_views, sum_uae_partner_profile_views, 
             sum_gn_partner_profile_views, sum_es_partner_profile_views, sum_swed_partner_profile_views, sum_non_partner_profile_views,
             students_active_last_six_weeks
-
-```
-
-""Our philosophy QA once re-use, safely re-use."""
-
